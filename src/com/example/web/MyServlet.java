@@ -75,14 +75,14 @@ public class MyServlet extends HttpServlet {
 				}
 				break;
 			case "find":
-				String s=ejb.find(id);
-				System.out.println("****"+s);
-				String[] empDetail=s.split(":");// delimiters
-				name=empDetail[1];
-				salary=Double.parseDouble(empDetail[2]);
-				Employee e1=new Employee(id,name,salary);
+				Employee emp=ejb.find(id);
+//				System.out.println("****"+s);
+//				String[] empDetail=s.split(":");// delimiters
+//				name=empDetail[1];
+//				salary=Double.parseDouble(empDetail[2]);
+//				Employee e1=new Employee(id,name,salary);
 	//			request.setAttribute("emp", e1);
-				session.setAttribute("emp", e1);
+				session.setAttribute("emp", emp);
 				request.getRequestDispatcher("index.jsp").forward(request, response);
 				break;
 			case "delete":
